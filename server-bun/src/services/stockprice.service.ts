@@ -1,7 +1,6 @@
-import grpc, { type ServiceError } from '@grpc/grpc-js'
+import grpc from '@grpc/grpc-js'
 import type { StockPriceServiceServer } from '../generated/stockprice'
 
-// Implementação simples do serviço: valida symbol, gera um preço fictício e responde com timestamp.
 export const stockPriceServiceImpl: StockPriceServiceServer = {
   getPrice: (call, callback) => {
     try {
@@ -26,7 +25,7 @@ export const stockPriceServiceImpl: StockPriceServiceServer = {
       const response = {
         symbol,
         price,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().getTime()
       }
 
       callback(null, response)

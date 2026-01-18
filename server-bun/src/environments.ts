@@ -13,7 +13,7 @@ if (!_env.success) {
 
   console.log(
     '❌ Invalid environment variables: \n',
-    Object.entries((errors.properties != null) || {})
+    Object.entries(errors.properties || {})
       .map(([key, value]) => `${key}: ${value.errors.join(';')}`)
       .join('\n')
   )
