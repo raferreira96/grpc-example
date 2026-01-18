@@ -1,0 +1,22 @@
+{
+  "name": "grpc-server-bun",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run --watch src/bootstrap.ts",
+    "generate:proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=outputServices=grpc-js,env=node,addGrpcMetadata=true,useOptionals=none   -I=./src/protos ./src/protos/*.proto"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.3",
+    "protoc": "^33.4.0",
+    "ts-proto": "^2.11.0",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
