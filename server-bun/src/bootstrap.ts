@@ -1,7 +1,7 @@
-import * as grpc from './server.ts';
+import * as grpc from './server.ts'
 
 const bootstrap = () => {
-    grpc.startServer()
+  grpc.startServer()
 }
 
 bootstrap()
