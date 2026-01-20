@@ -4,6 +4,7 @@ package stockprice;
 
 service StockPriceService {
   rpc GetPrice (StockPriceRequest) returns (StockPriceResponse);
+  rpc GetPriceServerStreaming (StockPriceRequest) returns (stream StockPriceResponse);
 }
 
 message StockPriceRequest {
